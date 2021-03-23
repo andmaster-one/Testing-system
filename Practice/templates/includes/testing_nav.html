@@ -1,0 +1,51 @@
+<div class="containe mr-5">
+      <nav class="navbar navbar-expand-md">                  
+          <ul class="navbar-nav mr-auto">
+
+            {% url 'testing-service:index_url' as index_url %}            
+              <li class="nav-item">
+                <a class="nav-link" 
+                {% if request.path_info == index_url %}
+                  >
+                {% else %}
+                  href="{{index_url}}">
+                {% endif %}
+                Главная |</a>
+              </li>
+
+              {% url 'testing-service:overal_result_url' as overal_result_url %} 
+              <li class="nav-item">
+                <a class="nav-link" 
+                {% if request.path_info == overal_result_url %}
+                  >
+                {% else %}
+                  href="{{overal_result_url}}">
+                {% endif %}
+                Общие результаты |</a>
+              </li>   
+
+          </ul>
+            <span class="navbar-text">
+              {% url 'account_signup' as register_url %} 
+              {% url 'account_login' as login_url %} 
+
+              {% if not request.user.is_authenticated %}
+
+              <a {% if request.path_info == login_url %} class="active" >
+                {% else %} href="{{login_url}}"> {% endif %}
+                Login |</a>               
+                
+                <a {% if request.path_info == register_url %} class="active" >
+                {% else %} href="{{register_url}}"> {% endif %}
+                Register |</a>
+
+              {% else %}
+                <span class="username"> username: &nbsp; <strong> {{request.user.username}} </strong> 
+                  &nbsp; <a  href=" {% url 'account_logout' %} ">Logout</a>
+                </span>
+
+              {% endif %}
+
+            </span>
+      </nav>
+    </div>

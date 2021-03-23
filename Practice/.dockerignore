@@ -1,0 +1,7 @@
+.dockerignore
+Dockerfile
+.vscode
+*.pyc
+.git
+virtual
+all_static

@@ -1,0 +1,21 @@
+{% extends 'testing/bases/base.html' %}
+
+{% block title %} Система тестирования {% endblock title %}
+
+{% block extrastyles %}{% endblock extrastyles %}
+
+{% block content %} 
+    <div class="container"> 
+        <div class="row">
+            <div class="col mt-2">
+
+                <h1> Результаты теста: {{ group_name }} </h1>
+                <h2> Вы правильно ответили на {{ len_correct_answers }} вопросов из {{ number_questions }}.
+                <br> {{ procent_success }} % успешных ответов. 
+                </h2>
+
+             </div>
+        </div>
+    </div>
+
+{% endblock content %}

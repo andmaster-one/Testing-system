@@ -1,0 +1,21 @@
+div.inline-related.dynamic-questions h3 {
+    font-size: 20px;
+}
+
+div.inline-related.dynamic-questions div[class|='inline-related dynamic-questions'] h3 {
+    font-size: 12px;
+}
+
+div[class|='inline-group questions-nested-inline  questions'] h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+ul.errorlist {
+
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+
+}
+

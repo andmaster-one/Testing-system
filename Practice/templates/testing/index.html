@@ -1,0 +1,24 @@
+{% extends 'testing/bases/base.html' %}
+
+{% block title %} Система тестирования {% endblock title %}
+
+  {% block content %}
+   <h1 class="text-center" style="color: rgb(0, 80, 185);">Выберите тест</h1>
+       
+   <div class="container">
+        <div class="row">
+            <div class="col mt-2">
+                <div class="list-group">                    
+                    {% for group in groups %}
+                      <a href="{% url 'testing-service:group_url' pk=group.pk %}" class="list-group-item" {% if group.pk in finished_groups %} style = "background: #daffec; color: green; " {% endif %}>{{group.name}}</a>                      
+                    {% endfor %}                   
+                  </div>                  
+            </div>         
+        </div>        
+    </div>
+{% endblock content %}
+
+
+
+
+

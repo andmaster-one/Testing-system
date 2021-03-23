@@ -1,0 +1,36 @@
+{% extends 'testing/bases/base.html' %}
+
+{% block title %} Система тестирования {% endblock title %}
+
+{% block extrastyles %}{% endblock extrastyles %}
+
+{% block content %} 
+    <div class="container"> 
+        <div class="row">
+            <div class="col mt-2">
+
+                <h1> Общие результаты: </h1>
+                <ul>
+                {% for group_name, len_correct_answers, number_questions, procent_success, group_pk in result %}
+                   
+                    <h5 class = "mt-4 d-inline-block">{{ group_name }}:</h5> 
+                    <li>Правильных ответов - {{ len_correct_answers }}</li>
+                    <li>Процент правильных ответов - {{procent_success}} </li>
+                                   
+                {% empty %}
+                    <div class="alert alert-danger" role="alert">
+                            Вы еще не прошли ни одного теста!
+                    </div>
+                {% endfor %}
+                </ul>
+                    
+              
+                    
+     
+                </h2>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+version: "3.9"
+#python manage.py runserver 0.0.0.0:8000
+services:
+  web:
+    build: ./Practice
+    # ports:
+    #   - "8000:8000"
+    command: > 
+             bash -c "
+             while ! </dev/tcp/db/5432; do sleep 1; done && 
+             echo DB_READY;
+             python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py collectstatic --no-input --clear &&
+             echo \"from django.contrib.auth.models import User; User.objects.create_superuser('and', 'admin@example.com', '1') if not User.objects.filter(username='and') else ''\" | python manage.py shell &&
+             gunicorn mypractice.wsgi:application --bind 0.0.0.0:8000
+             "             
+    volumes:
+      # - ./Practice/:/code/
+      - static_volume:/code/all_static
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+  
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=andmaster
+      - POSTGRES_PASSWORD=mukik
+      - POSTGRES_DB=andmaster_db_dev
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles/
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+  
+volumes:
+  postgres_data:
+  static_volume:
+

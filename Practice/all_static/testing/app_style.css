@@ -1,0 +1,52 @@
+nav a[href].nav-link {
+    font-weight:normal;
+    color: rgb(0, 30, 129);
+  }
+
+  nav a[href].nav-link:hover {
+    color: rgb(204, 99, 0);
+  }
+
+  nav a.nav-link {
+    font-weight: bold;
+    color: rgb(204, 99, 0);
+  }
+
+  nav a.nav-link:hover {
+    font-weight: bold;
+    color: rgb(204, 99, 0);
+  }
+
+
+  
+   span.nav-link {
+    font-weight: bold;
+    color: rgb(204, 99, 0);
+  }
+
+  .navbar-text a{
+    color: rgb(0, 30, 129);
+  }  
+
+  span.username {
+    color: rgb(104, 45, 3);
+  }
+
+  a.active {
+    font-weight: bold;
+    color: rgb(204, 99, 0);
+  }
+
+  a.active:hover {
+    font-weight: bold;
+    color: rgb(204, 99, 0);
+  }
+
+
+  body {
+    background: rgb(197, 197, 197);
+  }
+
+  a.list-group-item {
+    background: rgb(231, 231, 231);
+  }
